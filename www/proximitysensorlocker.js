@@ -1,4 +1,4 @@
-cordova.define("org.scn.cordova.proximity.ProximitySensorLocker", function(require, exports, module) { /*
+/*
  * Copyright 2015 Wang Da
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
