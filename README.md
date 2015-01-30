@@ -1,4 +1,4 @@
-phonegap-plugin-brightness
+phonegap-plugin-proximitysensorlocker
 ==========================
 
 A phonegap 3.x plugin for proximity sensor lock and unlock screen control for android.
