@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android" 
+           id="org.scn.cordova.proximity.ProximitySensorLocker"
+      version="0.1.0">
+    <name>ProximitySensorLocker</name>
+
+	<author>Wang Da</author>
+	
+	<license>MIT</license>
+	
+	<description>
+		This plugin gives you the ability to lock and unlock on proximity sensor
+	</description>
+	
+    <js-module src="www/proximitysensorlocker.js" name="ProximitySensorLocker">
+        <clobbers target="proximitySensorLocker" />
+    </js-module>
+    
+	<info>
+		This plugin gives you the ability to lock and unlock your screen on proximity sensor.
+	</info>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ProximitySensorLocker">
+                <param name="android-package" value="org.scn.cordova.proximity.ProximitySensorLocker"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+        </config-file>
+        <source-file src="src/android/ProximitySensorLocker.java" target-dir="src/org/scn/cordova/proximity" />
+    </platform>
+</plugin> 
