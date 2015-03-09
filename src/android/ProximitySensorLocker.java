@@ -73,7 +73,7 @@ public class ProximitySensorLocker extends CordovaPlugin {
 	private PluginResult acquire() {
 		  int PROXIMITY_SCREEN_OFF_WAKE_LOCK = 32;
 		  
-		  if (this.wakelock == null) {
+		  if (this.wakeLock == null) {
 		  	this.wakeLock = this.powerManager.newWakeLock(PROXIMITY_SCREEN_OFF_WAKE_LOCK, "PROXIMITY_SCREEN_OFF_WAKE_LOCK");
 		  	this.wakeLock.acquire();
 		  }
