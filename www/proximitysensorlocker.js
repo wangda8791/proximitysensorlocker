@@ -26,4 +26,3 @@ ProximitySensorLocker.prototype.release = function() {
 
 module.exports = new ProximitySensorLocker();
 
-});
