@@ -82,7 +82,7 @@ public class ProximitySensorLocker extends CordovaPlugin {
 	
 	private PluginResult release() {
 		if (this.wakeLock != null) {
-			if (this.wakeLock.isHeld()) this.wakeLock.release(1);
+			if (this.wakeLock.isHeld()) this.wakeLock.release();
 			this.wakeLock = null;
 	  	}
 	  	return new PluginResult(PluginResult.Status.OK);
