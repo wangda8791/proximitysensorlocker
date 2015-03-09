@@ -72,17 +72,20 @@ public class ProximitySensorLocker extends CordovaPlugin {
 	
 	private PluginResult acquire() {
 		  int PROXIMITY_SCREEN_OFF_WAKE_LOCK = 32;
-		  this.wakeLock = this.powerManager.newWakeLock(PROXIMITY_SCREEN_OFF_WAKE_LOCK, "PROXIMITY_SCREEN_OFF_WAKE_LOCK");
-		  this.wakeLock.acquire();
+		  
+		  if (this.wakelock == null) {
+		  	this.wakeLock = this.powerManager.newWakeLock(PROXIMITY_SCREEN_OFF_WAKE_LOCK, "PROXIMITY_SCREEN_OFF_WAKE_LOCK");
+		  	this.wakeLock.acquire();
+		  }
 		  return new PluginResult(PluginResult.Status.OK);
 	}
 	
 	private PluginResult release() {
-		if ( null != this.wakeLock ) {
-			if (this.wakeLock.isHeld()) this.wakeLock.release();
+		if (this.wakeLock != null) {
+			if (this.wakeLock.isHeld()) this.wakeLock.release(1);
 			this.wakeLock = null;
-	  }
-	  return new PluginResult(PluginResult.Status.OK);
+	  	}
+	  	return new PluginResult(PluginResult.Status.OK);
 	}
 	
 	/**
@@ -90,7 +93,7 @@ public class ProximitySensorLocker extends CordovaPlugin {
 	 */
 	@Override
 	public void onPause(boolean multitasking) {
-		//if( this.wakeLock != null ) this.wakeLock.release();
+		if( this.wakeLock != null ) this.wakeLock.release();
 
 		super.onPause(multitasking);
 	}
